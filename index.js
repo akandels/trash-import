@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const { existsSync, writeFile } = require('fs');
+const { unlinkSync, existsSync, writeFile } = require('fs');
 const { basename, extname, resolve } = require('path');
 const browseDirectory = require('./browseDirectory');
 const scanImport = require('./scanImport');
@@ -61,7 +61,7 @@ program
       reportToDelete.push(absolutePathname);
 
       if (program.delete) {
-        fs.unlinkSync(absolutePathname);
+        unlinkSync(absolutePathname);
       }
     }
 
